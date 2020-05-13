@@ -7,13 +7,12 @@
     </v-row>
     <v-row>
       <v-col xs="12" sm="6" offset-sm="3">
-        <form @submit.prevent="createNewMeetup">
+        <form @submit.prevent="createNewMeetup" ref="form">
           <v-text-field
             v-model="title"
-            :counter="10"
             label="Title"
             name="title"
-            id="location"
+            id="title"
             required
           ></v-text-field>
           <v-text-field
@@ -37,12 +36,10 @@
           <v-row>
             <!--  -->
             <v-col lg="6">
-              <v-date-picker  v-model="date"></v-date-picker>
-         
+              <v-date-picker v-model="date"></v-date-picker>
             </v-col>
             <v-col lg="6">
               <v-time-picker v-model="time" format="24hr"></v-time-picker>
-              
             </v-col>
           </v-row>
           <v-text-field
@@ -56,8 +53,7 @@
           <v-btn class="mr-4" :disabled="!formIsValid"
             type="submit"
             >submit</v-btn
-          >
-         
+          >    
           <v-btn @click="clear">clear</v-btn>
         </form>
       </v-col>
